@@ -1,0 +1,1 @@
+add_fprime_subdirectory("${CURRENT_CMAKE_LIST_DIR}/RNG")
