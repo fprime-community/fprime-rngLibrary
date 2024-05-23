@@ -2,4 +2,5 @@
 # This allows for reuse between deployments, or other projects.
 
 add_fprime_subdirectory("${CMAKE_CURRENT_LIST_DIR}/Components")
-add_fprime_subdirectory("${CMAKE_CURRENT_LIST_DIR}/RNGLibrary/RNG/")
+add_fprime_subdirectory("${CMAKE_CURRENT_LIST_DIR}/MainDeployment/")
+add_fprime_subdirectory("${CMAKE_CURRENT_LIST_DIR}/RNGLibrary/")

@@ -46,6 +46,6 @@ namespace RNGLibrary
   {
     srand(seed);
     Fw::Logger::logMsg("[RNG]: Seed set to %d\n", seed);
-    this->tlmWrite_RNGSeed(seed)
+    this->tlmWrite_RNGSeed(seed);
   }
 }
