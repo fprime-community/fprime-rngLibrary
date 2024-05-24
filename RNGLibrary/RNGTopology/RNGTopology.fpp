@@ -14,15 +14,12 @@ module RNGTopology {
         stack size Defaults.STACK_SIZE \
         priority 150
 
-    instance rateGroupDriver: Svc.RateGroupDriver base id 0xFF8FF # to drive the 1Hz rate group
-
     topology RNGTopology {
         instance rng # RNG component instance
         instance rateGroup # rate group instance
-        instance rateGroupDriver # driving the rate group
 
         connections MyWiring {
-            rateGroupDriver.CycleOut[0] -> rateGroup.CycleIn # to send the 1Hz configurable signal to our rate group
+            # we'll provide the rate group its cycle in our main deployment
             rateGroup.RateGroupMemberOut[0] -> rng.run
         }
     } # end topology
