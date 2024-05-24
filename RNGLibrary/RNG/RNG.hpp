@@ -1,6 +1,6 @@
 // ======================================================================
 // \title  RNG.hpp
-// \author amosalla
+// \author Ali Mosallaei (ali.mosallaei@jpl.nasa.gov)
 // \brief  hpp file for RNG component implementation class
 // ======================================================================
 
