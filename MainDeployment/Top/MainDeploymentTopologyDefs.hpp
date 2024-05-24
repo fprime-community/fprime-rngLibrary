@@ -11,7 +11,7 @@
 #include "MainDeployment/Top/FppConstantsAc.hpp"
 #include "Svc/FramingProtocol/FprimeProtocol.hpp"
 #include "Svc/Health/Health.hpp"
-#include "RNGLibrary/RNGTopology/RNGTopologyDefs.hpp"
+#include "RNGLibrary/RNGTopology/RNGTopologyTopologyDefs.hpp"
 
 // Definitions are placed within a namespace named after the deployment
 namespace MainDeployment {
@@ -47,6 +47,10 @@ struct TopologyState {
  * }
  * ```
  */
+    namespace PingEntries = Globals::PingEntries;
+}
+
+namespace Globals {
 namespace PingEntries {
 namespace blockDrv {
 enum { WARN = 3, FATAL = 5 };
@@ -85,5 +89,5 @@ namespace rateGroup3 {
 enum { WARN = 3, FATAL = 5 };
 }
 }  // namespace PingEntries
-}  // namespace MainDeployment
+}  // namespace Globals
 #endif

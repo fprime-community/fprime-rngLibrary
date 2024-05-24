@@ -3,6 +3,7 @@
 // \brief cpp file containing the topology instantiation code
 //
 // ======================================================================
+
 // Provides access to autocoded functions
 #include <MainDeployment/Top/MainDeploymentTopologyAc.hpp>
 #include <MainDeployment/Top/MainDeploymentPacketsAc.hpp>
@@ -13,11 +14,11 @@
 #include <Os/Log.hpp>
 #include <Svc/FramingProtocol/FprimeProtocol.hpp>
 
+using namespace MainDeployment;
+
 // Used for 1Hz synthetic cycling
 #include <Os/Mutex.hpp>
 
-// Allows easy reference to objects in FPP/autocoder required namespaces
-using namespace MainDeployment;
 
 // Instantiate a system logger that will handle Fw::Logger::logMsg calls
 Os::Log logger;
@@ -165,7 +166,8 @@ void setupTopology(const TopologyState& state) {
         comDriver.startSocketTask(name, true, COMM_PRIORITY, Default::STACK_SIZE);
     }
 
-    RNGTopology::startTopology({});
+    RNGTopology::TopologyState emptyState;
+    RNGTopology::startTopology(emptyState);
 }
 
 // Variables used for cycle simulation
@@ -207,6 +209,7 @@ void teardownTopology(const TopologyState& state) {
     cmdSeq.deallocateBuffer(mallocator);
     bufferManager.cleanup();
 
-    RNGTopology::teardownTopology({});
+    RNGTopology::TopologyState emptyState;
+    RNGTopology::teardownTopology(emptyState);
 }
 };  // namespace MainDeployment

@@ -1,8 +1,9 @@
 #ifndef RNGTopology_HPP
 #define RNGTopology_HPP
 
-#include "RNGTopologyDefs.hpp"
-using namespace RNGTopology;
+#include "RNGTopologyTopologyDefs.hpp"
+#include <TopologyConfig.hpp>
+
 
 namespace RNGTopology {
     void configureTopology(const TopologyState& state);
