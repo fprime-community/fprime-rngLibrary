@@ -10,14 +10,14 @@ module MainDeployment {
       rateGroup3
     }
 
-    constant Testing = {}
-    @<! is topology RNGTopology.RNG base id 0xCCCC with {
+    topology Testing {}
+    @<! is RNGTopology.RNG base id 0xCCCC with {
     @<!    hardware = MainDeployment.hardware,
     @<!    receiver = MainDeployment.receiver
     @<! }
 
   topology MainDeployment {
-    import RNG.Testing
+    import Testing
 
     # ----------------------------------------------------------------------
     # Instances used in the topology
@@ -51,6 +51,8 @@ module MainDeployment {
 
     instance hardware
     instance receiver
+
+    instance RNGTopology.Input
 
     # ----------------------------------------------------------------------
     # Pattern graph specifiers
@@ -146,6 +148,10 @@ module MainDeployment {
 
     connections MainDeployment {
       # Add here connections to user-defined components
+    }
+
+    connections Interface_Testing {
+      rateGroup2.RateGroupMemberOut[2] -> RNGTopology.Input.clock
     }
 
   }

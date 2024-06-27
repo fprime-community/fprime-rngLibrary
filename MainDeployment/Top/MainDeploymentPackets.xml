@@ -82,6 +82,7 @@
         <channel name="hardware.HardwareData"/>
         <channel name="rng.DataIn"/>
         <channel name="rng.RNGSeed"/>
+        <channel name="rng.Clock"/>
     </packet>
 
     <!-- Ignored packets -->

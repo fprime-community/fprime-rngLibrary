@@ -8,9 +8,12 @@ module RNGLibrary {
         # telemetry from the component
         telemetry DataIn: U32
         telemetry RNGSeed: U32
+        telemetry Clock: U32
 
         sync input port data: RNGTopologyConfig.MessagePort
         output port processed: RNGTopologyConfig.MessagePort
+
+        sync input port run: Svc.Sched
 
         ##############################################################################
         #### Uncomment the following examples to start customizing your component ####

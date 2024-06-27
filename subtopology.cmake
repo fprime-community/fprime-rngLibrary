@@ -15,7 +15,7 @@ function(subtopology_setup_autocode AC_INPUT_FILE)
     set(OUTPUT_FILE "${CMAKE_CURRENT_BINARY_DIR}/${FPRIME_CURRENT_MODULE}.subtopologies.fpp")
     set(LOCAL_CACHE "${CMAKE_CURRENT_BINARY_DIR}/fpp-cache")
 
-    set(GENERATED_FILES "${CMAKE_CURRENT_BINARY_DIR}/${FPRIME_CURRENT_MODULE}.subtopologies.fpp" "${CMAKE_CURRENT_BINARY_DIR}/st-locs.fpp")
+    set(GENERATED_FILES "${CMAKE_CURRENT_BINARY_DIR}/${FPRIME_CURRENT_MODULE}.subtopologies.fpp" "${CMAKE_CURRENT_BINARY_DIR}/st-locs.fpp" "${CMAKE_CURRENT_BINARY_DIR}/${BASENAME}")
 
     if (CMAKE_DEBUG_OUTPUT)
         message(STATUS "[Subtopology Ac] CLI: ${PYTHON} ${PYTHON_TOOL} --locs ${CMAKE_BINARY_DIR}/locs.fpp --file ${AC_INPUT_FILE} --p ${OUTPUT_FILE} --c ${LOCAL_CACHE}")
@@ -25,9 +25,10 @@ function(subtopology_setup_autocode AC_INPUT_FILE)
         COMMAND ${PYTHON} ${PYTHON_TOOL} --locs ${CMAKE_BINARY_DIR}/locs.fpp --file ${AC_INPUT_FILE} --p ${GENERATED_FILES} --c ${LOCAL_CACHE}
         RESULT_VARIABLE RETURN_CODE
     )
-    
+
     if (RETURN_CODE EQUAL 0)
         set(AUTOCODER_GENERATED "${GENERATED_FILES}" PARENT_SCOPE)
+        set(AUTOCODER_REMOVED_SOURCES "${AC_INPUT_FILE}" PARENT_SCOPE)
     else()
         set(AUTOCODER_GENERATED "" PARENT_SCOPE)
     endif()

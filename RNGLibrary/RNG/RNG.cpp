@@ -53,6 +53,15 @@ namespace RNGLibrary {
     this->processed_out(0, message_final);
   }
 
+  void RNG ::
+    run_handler(
+        FwIndexType portNum,
+        U32 context
+    )
+  {
+    this->tlmWrite_Clock(rand());
+  }
+
   // ----------------------------------------------------------------------
   // Handler implementations for commands
   // ----------------------------------------------------------------------

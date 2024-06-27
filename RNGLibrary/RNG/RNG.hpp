@@ -41,6 +41,12 @@ namespace RNGLibrary {
           U32 m_message
       ) override;
 
+      //! Handler implementation for run
+      void run_handler(
+          FwIndexType portNum, //!< The port number
+          U32 context //!< The call order
+      ) override;
+
     PRIVATE:
 
       // ----------------------------------------------------------------------
