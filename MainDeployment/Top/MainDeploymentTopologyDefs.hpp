@@ -11,7 +11,7 @@
 #include "MainDeployment/Top/FppConstantsAc.hpp"
 #include "Svc/FramingProtocol/FprimeProtocol.hpp"
 #include "Svc/Health/Health.hpp"
-#include "MainDeployment/Top/TestingTopologyDefs.hpp"
+#include "MainDeployment/Top/SubtopologyStates.hpp"
 
 // Definitions are placed within a namespace named after the deployment
 namespace MainDeployment {
@@ -26,7 +26,7 @@ namespace MainDeployment {
 struct TopologyState {
     const CHAR* hostname;
     U16 port;
-    RNGTopologyState RNGTopology_state;
+    SubtopologyStates st;
 };
 
 /**

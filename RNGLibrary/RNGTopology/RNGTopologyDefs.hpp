@@ -1,12 +1,9 @@
 #ifndef RNGTOPOLOGY_DEFS_HPP
 #define RNGTOPOLOGY_DEFS_HPP
 
-struct RNGTopologyState {
-    U32 initialSeed;
-};
 
-struct TopologyState {
-    RNGTopologyState RNGTopology_state;
+struct RNGState {
+    U32 initialSeed;
 };
 
 namespace Globals
